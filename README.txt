@@ -1,3 +1,10 @@
+Fork of https://sourceforge.net/projects/refind/ for personal use.
+
+The changes made makes so that the distance between the edges of the screen
+and the first and last tiles are equal to half the distance between tiles.
+Since the tiles are evenly spread out, this results in i-th tile being at
+the center of i-th chunk (x-axis | width).
+
 Brief Installation Instructions (Binary Package)
 ================================================
 

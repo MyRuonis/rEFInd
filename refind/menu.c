@@ -93,7 +93,7 @@ static UINTN TileSizes[2] = { 144, 64 };
 #define TEXT_YMARGIN (2)
 #define TITLEICON_SPACING (16)
 
-#define TILE_XSPACING (8)
+UINTN TILE_XSPACING = 8; // UGAWidth TileSizes[0]
 #define TILE_YSPACING (16)
 
 static EG_IMAGE *SelectionImages[2] = { NULL, NULL };
@@ -1243,6 +1243,7 @@ VOID MainMenuStyle(IN REFIT_MENU_SCREEN *Screen, IN SCROLL_STATE *State,
                      row0Count++;
                }
             }
+            TILE_XSPACING = (UGAWidth - (TileSizes[0] * row0Count)) / row0Count;
             row0PosX = (UGAWidth + TILE_XSPACING - (TileSizes[0] + TILE_XSPACING) * row0Count) >> 1;
             row0PosY = ComputeRow0PosY();
             row1PosX = (UGAWidth + TILE_XSPACING - (TileSizes[1] + TILE_XSPACING) * row1Count) >> 1;
@@ -1314,6 +1315,7 @@ UINTN FindMainMenuItem(IN REFIT_MENU_SCREEN *Screen, IN SCROLL_STATE *State, IN 
                         row0Count++;
         }
     }
+    TILE_XSPACING = (UGAWidth - (TileSizes[0] * row0Count)) / row0Count;
     row0PosX = (UGAWidth + TILE_XSPACING - (TileSizes[0] + TILE_XSPACING) * row0Count) >> 1;
     row0PosY = ComputeRow0PosY();
     row1PosX = (UGAWidth + TILE_XSPACING - (TileSizes[1] + TILE_XSPACING) * row1Count) >> 1;
